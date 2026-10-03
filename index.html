@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pescando 🐟 - Praia Grande/SP</title>
+    <!-- Tailwind CSS para design ágil e responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- SDK oficial do Telegram Mini App -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased pb-12">
+
+    <!-- Header / Status Operacional -->
+    <header class="bg-slate-800 border-b border-slate-700 p-4 sticky top-0 z-50 shadow-md">
+        <div class="max-w-md mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-lg font-bold text-cyan-400 flex items-center gap-2">
+                    <span>🐟</span> Pescando: Praia Grande
+                </h1>
+                <p class="text-xs text-slate-400" id="current-date">Atualizando telemetria...</p>
+            </div>
+            <span class="bg-cyan-950 text-cyan-300 text-xs px-2.5 py-1 rounded-full border border-cyan-800 font-medium">Ativo</span>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto p-4 space-y-4">
+
+        <!-- Card de Telemetria & Clima -->
+        <section class="bg-slate-800 rounded-xl p-4 border border-slate-700 shadow-sm">
+            <h2 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-3">🌙 Condições & Lua</h2>
+            <div class="grid grid-cols-2 gap-3 text-sm">
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/50">
+                    <span class="text-slate-400 text-xs block">Fase Lunar</span>
+                    <strong class="text-cyan-300 text-xs" id="lunar-phase">Quarto Minguante</strong>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/50">
+                    <span class="text-slate-400 text-xs block">Ondas / Vento</span>
+                    <strong class="text-emerald-400 text-xs">1.7m | 11.5 km/h</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Espécies-Alvo -->
+        <section class="space-y-3">
+            <h2 class="text-sm font-semibold text-slate-300 uppercase tracking-wider">🎯 Espécies-Alvo & Equipamentos</h2>
+
+            <!-- Card Robalo -->
+            <div class="bg-slate-800 rounded-xl p-4 border border-slate-700">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-cyan-400">Robalo (Centropomus)</h3>
+                    <span class="text-xs bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Alta Atividade</span>
+                </div>
+                <p class="text-xs text-slate-300 mb-3">Posicionado nas fozes e canais aproveitando a correnteza da vazante.</p>
+                <div class="text-xs space-y-1 bg-slate-900/50 p-2.5 rounded border border-slate-700/40 text-slate-300">
+                    <p>• <strong>Vara / Linha:</strong> Fast 6'-7'2 | PE 0.8-1.5 | Líder 0.30-0.45</p>
+                    <p>• <strong>Isca / Anzol:</strong> Jig head 7g-21g | Circle/Offset <strong>1/0 a 3/0</strong></p>
+                </div>
+            </div>
+
+            <!-- Card Betara -->
+            <div class="bg-slate-800 rounded-xl p-4 border border-slate-700">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-yellow-400">Betara (Lile stolifera)</h3>
+                    <span class="text-xs bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-800">Boa Atividade</span>
+                </div>
+                <p class="text-xs text-slate-300 mb-3">Atua em águas rasas e poças de recuo na maré vazante.</p>
+                <div class="text-xs space-y-1 bg-slate-900/50 p-2.5 rounded border border-slate-700/40 text-slate-300">
+                    <p>• <strong>Equipamento:</strong> Surfcasting 3.6m-4.2m | Chumbo 80g-120g</p>
+                    <p>• <strong>Anzol (Crítico):</strong> Pequenos, <strong>#2 a #1/0</strong> <span class="text-red-400 font-semibold">(Proibido 6/0+)</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Logística e Comércio Real -->
+        <section class="bg-slate-800 rounded-xl p-4 border border-slate-700">
+            <h2 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-2">📍 Onde Comprar Iscas em PG</h2>
+            <ul class="text-xs space-y-2 text-slate-300">
+                <li class="flex items-start gap-2">
+                    <span class="text-cyan-400 font-bold">▪</span>
+                    <span><strong>Av. Presidente Kennedy:</strong> Principal eixo com lojas de pesca e artigos náuticos.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-cyan-400 font-bold">▪</span>
+                    <span><strong>Av. Ayrton Senna:</strong> Opções de lojas de esportes e pesca.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Seção: Segurança -->
+        <section class="bg-red-950/40 rounded-xl p-4 border border-red-900/50">
+            <h2 class="text-sm font-semibold text-red-400 uppercase tracking-wider mb-2">⚠️ Protocolos de Segurança</h2>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                <strong>Picada de Arraia:</strong> Aplique imediatamente água quente (40-45°C) na área afetada para neutralizar a toxina. Fique atento às correntes de retorno locais.
+            </p>
+        </section>
+
+    </main>
+
+    <script>
+        // Inicializa o Telegram WebApp SDK
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+
+        // Data dinâmica
+        const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('pt-BR', options);
+    </script>
+</body>
+</html>
